@@ -1,0 +1,22 @@
+{
+  "name": "personal-job-intelligence-system",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace @jobagent/api\" \"npm run dev --workspace @jobagent/web\"",
+    "dev:api": "npm run dev --workspace @jobagent/api",
+    "dev:web": "npm run dev --workspace @jobagent/web",
+    "build": "npm run build --workspace @jobagent/api && npm run build --workspace @jobagent/web",
+    "lint": "npm run lint --workspace @jobagent/api && npm run lint --workspace @jobagent/web",
+    "db:generate": "npm run db:generate --workspace @jobagent/database",
+    "db:migrate": "npm run db:migrate --workspace @jobagent/database",
+    "db:studio": "npm run db:studio --workspace @jobagent/database"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
